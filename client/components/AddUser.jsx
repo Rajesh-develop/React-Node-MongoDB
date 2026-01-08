@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {createUser} from "../services/userService.js"
-// import {useNavite} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 
 const AddUser = () => {
@@ -10,7 +10,7 @@ const [form,setForm] = useState({
     email:"",
     age:""
 }) 
-// const navigate = useNavite();
+const navigate = useNavigate();
 
 const formData = (event)=>{
 setForm({...form,[event.target.name]:event.target.value})
@@ -18,7 +18,15 @@ setForm({...form,[event.target.name]:event.target.value})
 
 const formSubmit = async (event) =>{
     event.preventDefault()
-    await createUser(form)
+    try{
+      await createUser(form)
+      navigate("/users")
+      alert("User created Successfully...!")
+    }catch(error){
+      console.log("failed to create user",error)
+      alert("Failed to create User.....!")
+     
+    }
 }
 
  
