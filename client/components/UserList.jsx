@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {getUser} from "../services/userService"
+import { Link } from "react-router-dom"
 
 const UserList = () => {
 
@@ -7,7 +8,7 @@ const UserList = () => {
 
   console.log(users)
 
-  console.log(users)
+ 
 
   useEffect(()=>{
     fetchUsers()
@@ -38,6 +39,7 @@ const UserList = () => {
     ))}
   </ul>
 )}
+      <Link to={"/"}>Add Users</Link>
 
     </div>
   )

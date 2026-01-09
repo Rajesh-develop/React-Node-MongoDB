@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 const API_URL = "http://localhost:5000/api/users/"
 
 export const createUser = async (data) => {
@@ -21,5 +22,27 @@ export const getUser = async () =>{
   
 }
 }
+
+export const getUserById = async(id)=>{
+  try{
+    const response = await axios.get(`${API_URL}/${id}`)
+    return response.data
+  }catch(error){
+    console.log(error)
+    throw error
+  }
+}
+
+export const updateUser = async(id,data)=>{
+  try{
+    const response = await axios.put(`${API_URL}/${id}`,data)
+    return response.data
+  }catch(error){
+    console.log(error)
+    throw error
+  }
+}
+
+
 
 
