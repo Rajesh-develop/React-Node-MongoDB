@@ -1,4 +1,7 @@
-import User from "../models/UserModel.js";
+
+import {User} from "../models/UserModel.js"
+
+// const User = require("../models/UserModel.js")
 
 // create user
 
@@ -60,7 +63,6 @@ export const updateUser = async(req,res)=>{
 
 
 // delete user
-
 export const deleteUer = async(req,res)=>{
     try{
         const user = await User.findByIdAndDelete(req.params.id)
